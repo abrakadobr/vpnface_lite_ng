@@ -1,0 +1,22 @@
+#logger
+{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 24px 8px 0;
+  width: 40pt;
+  height: 40pt;
+  z-index: 2;
+}
+
+#last-logs
+{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 24pt 52pt 0;
+  width: 250pt;
+  height: auto;
+  z-index: 2;
+}
+

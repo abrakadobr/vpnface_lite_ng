@@ -1,0 +1,95 @@
+<div class="page-container">
+  <mat-toolbar>
+    <span>Список ключей</span>
+    <span class="spacer"></span>
+    <span class="add"><button (click)="addKey()" mat-button color="primary"><mat-icon>add</mat-icon>Добавить ключ</button></span>
+  </mat-toolbar>
+
+  <p class="desc">{{srv?.desc}}</p>
+  <p class="desc">Сервер может иметь неограниченое количеств ключей, но ограничен {{srv?.maxclients}} одновременными подключениями.</p>
+
+  <div class="table-container">
+    <mat-table #table [dataSource]="dataSource" class="clients-table" matSort aria-label="Elements">
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="blocked">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+            <mat-icon>vpn_lock</mat-icon>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <span *ngIf="row.blocked"><mat-icon class="a4">no_encryption</mat-icon></span>
+          <span *ngIf="!row.blocked"><mat-icon class="a4" color="primary">vpn_lock</mat-icon></span>
+        </mat-cell>
+      </ng-container>
+ 
+      <!-- Code Column -->
+      <ng-container matColumnDef="code">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>Ключ</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          {{row.code}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Действия</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div *ngIf="_locked[row.code]" style="width:100%">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          </div>
+          <div *ngIf="!_locked[row.code]">
+
+            <div *ngIf="row.blocked">
+              <button mat-icon-button disabled>
+                <mat-icon>get_app</mat-icon>
+              </button>
+  
+              <button
+                mat-icon-button
+                title="Разблокировать"
+                color="primary"
+                (click)="unlockKey(row.code)"
+              >
+                <mat-icon>vpn_lock</mat-icon>
+              </button>
+            </div>
+
+            <div *ngIf="!row.blocked">
+              <button
+                mat-icon-button
+                title="Скачать"
+                color="primary"
+                (click)="grabKey(row.code)"
+              >
+                <mat-icon>get_app</mat-icon>
+              </button>
+ 
+              <button
+                mat-icon-button
+                color="warn"
+                title="Заблокировать"
+                (click)="lockKey(row.code)"
+              >
+                <mat-icon>no_encryption</mat-icon>
+              </button>
+            </div>
+
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+    <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      >
+    </mat-paginator>
+  </div>
+</div>
+
+

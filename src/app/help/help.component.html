@@ -1,0 +1,50 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Как установить OpenVPN на устройство</h1>
+  <mat-grid-list cols="1" [rowHeight]="300">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content>
+          <app-help-client></app-help-client>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <br/>
+  <h1 class="mat-h1">Вопросы и ответы</h1>
+  <mat-grid-list cols="1" [rowHeight]="300">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card card-faq">
+        <mat-card-content>
+          <app-help-faq></app-help-faq>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <br/>
+  <h1 class="mat-h1">О VPNFace Light</h1>
+  <mat-grid-list cols="1" [rowHeight]="300">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content>
+          <p class="mat-body-1">
+          VPNFace Light - менеджер ключей для OpenVPN.
+          </p>
+          <p class="mat-body-1">
+          По умолчанию программа устанавливает три VPN сервера для различных видов подключений, и лимитирует количество одновременных соединений с каждым сервером 100 пользователям. Это не является программным ограничением и может быть переконфигурировано системным администратором.
+          </p>
+          <p class="mat-body-1">
+          VPNFace Light использует OpenSource компоненты: <a href="https://openvpn.net/" target="_blank">openvpn</a>, <a href="https://github.com/OpenVPN/easy-rsa" target="_blank">easy-rsa</a>, <a href="https://git-scm.com/" target="_blank">git</a>, <a href="https://www.torproject.org" target="_blank">tor</a>, <a href="https://www.nginx.com/" target="_blank">nginx</a>,<a href="https://nodejs.org" target="_blank">nodejs</a>, <a href="https://angular.io/" target="_blank">angularjs</a>, и распространяется бесплатно и без ограничений по использованию.
+          </p>
+          <p class="mat-body-1">
+          Если вы хотите подключить VPNFace Light к уже работающим OpenVPN серверам - обратитесь к <a href="http://10.1.0.1:81" target="_blank">документации</a>.
+          </p>
+          <p class="mat-body-1">
+          Программа VPNFace Light разработана в поддержку движения DIGITAL RESISTANCE. Автор: <a href="https://github.com/abrakadobr/" target="_blank">abrakadobr</a><br/>
+          Поблагодарить: BTC 1EzMFMyiGEqcjjHD8dvgrn4YsXwvgeDyVD
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

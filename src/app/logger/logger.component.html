@@ -1,0 +1,9 @@
+<div id="last-logs">
+  <div class="line-entry" *ngFor="let le of _logs">
+    <app-logline
+      [lline]="le"></app-logline>
+  </div>
+</div>
+<div id="logger">
+  <img (click)="say()" width="100%" src="/dr80.png"/>
+</div>

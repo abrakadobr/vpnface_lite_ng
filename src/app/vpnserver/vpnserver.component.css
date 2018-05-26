@@ -1,0 +1,42 @@
+.page-container {
+  margin: 20px;
+}
+
+.table-container {
+  margin: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.table-header h1 {
+  display: inline-block;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row
+{
+  background-color: inherit;
+  font-weight: lighter;
+}
+
+.mat-column-blocked {
+  flex: 0 0 40pt;
+}
+
+.mat-column-actions {
+  flex: 0 0 120pt;
+  justify-content: flex-end;
+}
+
+mat-icon.a4
+{
+  position: relative;
+  top: 4pt;
+}
+
+p.desc {
+  margin: 4pt 16pt;
+  font-size: 80%;
+  text-align: justify;
+}

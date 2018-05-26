@@ -1,0 +1,54 @@
+          <mat-form-field>
+            <mat-select [(value)]="_cliOS" placeholder="Инструкция для">
+              <mat-option value='win'>Windows</mat-option>
+              <mat-option value='linux'>Linux</mat-option>
+              <mat-option value='macos'>MacOS</mat-option>
+              <mat-option value='android'>Android</mat-option>
+              <mat-option value='ios'>iOS</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br/>
+          <p *ngIf="_cliOS == ''" class="mat-body-1">
+          Выберите вашу операционную систему из списка, что бы увидеть инструкции.
+          </p>
+
+          <div *ngIf="_cliOS == 'win'">
+            <p  class="mat-body-1">
+  Оффициальный клиент OpenVPN можно скачать с <a href="https://openvpn.net/index.php/open-source/downloads.html" target="_blank">этой страницы</a>. Последнюю версию (на момент создания проекта) можно скачать по <a href="https://swupdate.openvpn.org/community/releases/openvpn-install-2.4.6-I602.exe" target="_blank">этой прямой ссылке</a>.
+            </p>
+            <p class="mat-body-1">
+              После установки, надо загрузить ключ с настройками подключения в установленный клиент. Подробную инструкцию (в картинках) по установке и загрузке файла ключа можно посмотреть, к примеру, <a href="https://buffered.com/tutorials/setup-openvpn-client-windows-7/" target="_blank">здесь</a>
+            </p>
+          </div>
+
+          <div *ngIf="_cliOS == 'linux'">
+            <p  class="mat-body-1">
+              В основных linux системах, openvpn пакет установлен, и vpn соединяния управляются сетевым менеджером. Обычно, требуется установить дополнительный пакет для удобного создания vpn подключений из *.ovpn файлов.
+            </p>
+            <p class="mat-body-1">
+              Например в linux ubuntu/debian:<br/>
+              <code>apt-get install network-manager-openvpn-gnome</code>
+              <br/>
+              После установке, выберите пункт "редактировать соединения" в меню сетевого менеджера, и добавьте новое из скачаного ovpn файла ключа.
+            </p>
+          </div>
+
+          <div *ngIf="_cliOS == 'macos'">
+            <p  class="mat-body-1">
+            Для MacOS требуется установить программу <a href="https://tunnelblick.net/index.html" target="_blank">TunnelBlick</a>. Инструкции по загрузке ovpn файла ключа в установленный tunelblik можно посмотреть <a href="https://tunnelblick.net/czUsing.html" target="_blank">тут</a>.
+            </p>
+          </div>
+
+          <div *ngIf="_cliOS == 'android'">
+            <p  class="mat-body-1">
+            Официальный android OpenVPN клиент можно установить из <a href="https://play.google.com/store/apps/details?id=net.openvpn.openvpn" target="_blank">Google Play</a>.
+            </p>
+          </div>
+
+          <div *ngIf="_cliOS == 'ios'">
+            <p  class="mat-body-1">
+            Официальный iOS OpenVPN клиент можно установить из <a href="https://itunes.apple.com/us/app/openvpn-connect/id590379981" target="_blank">App Store</a>.
+            </p>
+          </div>
+
+

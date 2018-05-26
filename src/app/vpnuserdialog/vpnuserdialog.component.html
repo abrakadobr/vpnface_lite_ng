@@ -1,0 +1,35 @@
+<h2 class="ac" mat-dialog-title>Новый VPN ключ</h2>
+<mat-dialog-content class="ac">
+  <mat-form-field class="half-width">
+    <input
+      matInput
+      required
+      (keydown)="keyDownF($event)"
+      maxlength="16"
+      [disabled]="_lock"
+      [(ngModel)]="_account"
+      placeholder="Название аккаунта">
+    <mat-hint>Английские буквы и цифры. Первый символ - буква.</mat-hint>
+    <mat-hint align="end">{{_account.length}} / 16</mat-hint>
+  </mat-form-field>
+  <div class="p-body-1" *ngIf="_err!=''" style="color:#a00;">{{_err}}</div>
+  <div *ngIf="_lock" class="mat-body-1" style="margin-top:20pt;">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions >
+  <span class="spacer"></span>
+  <button
+    [disabled]="_lock"
+    mat-button
+    [mat-dialog-close]="null"
+  >Отмена</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button
+    mat-button
+    [disabled]="_lock"
+    (click)="go()"
+    color="primary"
+  >Создать</button>
+  <span class="spacer"></span>
+</mat-dialog-actions>

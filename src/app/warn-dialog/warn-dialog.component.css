@@ -1,0 +1,12 @@
+.half-width {
+  width: 50%;
+}
+
+.ac {
+  text-align:center;
+  padding-bottom: 4pt;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

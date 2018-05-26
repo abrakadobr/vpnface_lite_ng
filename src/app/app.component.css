@@ -1,0 +1,22 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.toolbar-hor-spacer {
+  flex: 1 1 auto;
+}
+
+mat-nav-list mat-icon {
+  margin-right: 4pt;
+}
+
+.tb-icon mat-icon {
+  position: relative;
+  top: 4pt;
+  margin-right: 8px;
+}

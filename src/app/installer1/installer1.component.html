@@ -1,0 +1,88 @@
+<div
+  *ngIf="state == 'createacc'"
+  class="grid-container">
+  <h1 class="mat-h1">Создание администраторского подключения</h1>
+  <mat-grid-list cols="1" [rowHeight]="200">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                required
+                maxlength="16"
+                [disabled]="_load"
+                [(ngModel)]="_account"
+                placeholder="Название аккаунта">
+              <mat-hint>Английские буквы и цифры. Первый символ - буква.</mat-hint>
+              <mat-hint align="end">{{_account.length}} / 16</mat-hint>
+            </mat-form-field>
+            <br/>
+            <button
+              mat-button
+              style="margin: 4pt 0;"
+              [disabled]="_load"
+              (click)="createAcc()">Создать!</button>
+            <div
+              class="err-msg mat-body-2" style="margin:4pt;"
+              *ngIf="_err!=''">{{_err}}</div>
+
+            <div *ngIf="_load" >
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="grid-container" *ngIf="state=='wait10'">
+  <h1 class="mat-h1">Установка клиента</h1>
+  <h3 class="mah-h3">Не закрывайте эту страницу</h3>
+
+  <mat-grid-list cols="2" [rowHeight]="150">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-subtitle>1. Скачайте файл ключа</mat-card-subtitle>
+        <mat-card-content class="dashboard-card-content">
+          <p class="mat-body-1" style="margin-top:0pt;">
+              <button
+                mat-button
+                color="primary"
+                style="margin-top: 0pt;"
+                (click)="grabKey()"><mat-icon>get_app</mat-icon> Скачать Ключ</button>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-subtitle>2. Подключите VPN на этом устройстве</mat-card-subtitle>
+        <mat-card-content class="dashboard-card-content">
+          <p class="mat-body-1" style="margin-top:20pt;">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+              <mat-hint class="hint">Ожидаю VPN подключения</mat-hint>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="grid-container" *ngIf="state=='wait10'">
+
+  <mat-grid-list cols="1" [rowHeight]="350">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-subtitle>Инструкции по установке OpenVPN клиента</mat-card-subtitle>
+        <mat-card-content class="dashboard-card-content" style="text-align:left">
+          <app-help-client></app-help-client>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

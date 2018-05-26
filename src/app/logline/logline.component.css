@@ -1,0 +1,32 @@
+.log-entry
+{
+  font-size: 60%;
+  color: #333;
+  text-align: right;
+  font-family: 'Ubuntu mono', monospace;
+  margin: -6pt 0;
+}
+
+.log-entry .key-w {
+  margin-left: 4pt;
+}
+
+.key-b {
+  color: #000;
+}
+
+.key-log {
+  color: #009;
+}
+
+.key-success {
+  color: #090;
+}
+
+.key-error {
+  color: #900;
+}
+
+.key-test {
+  color: #990;
+}

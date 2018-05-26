@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+body { margin: 0; background-color: #fafafa; }
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+}
+
+p,.mat-body-1 {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.hint
+{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 80%;
+}

@@ -1,0 +1,34 @@
+<div
+  class="grid-container">
+  <h1 class="mat-h1">IP адрес сервера</h1>
+  <mat-grid-list cols="1" [rowHeight]="200">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                required
+                maxlength="16"
+                [disabled]="_load"
+                [(ngModel)]="_ip"
+                placeholder="Адрес">
+              <mat-hint>Подтвердите авто-определение, или укажите корректный адрес</mat-hint>
+            </mat-form-field>
+            <br/>
+            <button
+              mat-button
+              style="margin: 4pt 0;"
+              [disabled]="_load"
+              (click)="confirmIP()">Подтвердить</button>
+
+            <div *ngIf="_load" >
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+              <mat-hint style="font-size:80%;">{{_log}}</mat-hint>
+            </div>
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    [opened]="(!(isHandset | async)!.matches)&&api._hasMenu">
+    <mat-toolbar color="primary">{{api._mtitle}}</mat-toolbar>
+    <mat-nav-list *ngFor="let cd of _menu">
+      <a mat-list-item (click)="goto(cd.code,drawer)"><mat-icon>{{cd.cloud}}</mat-icon> {{cd.name}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="((isHandset | async)!.matches)&&api._hasMenu">
+        <mat-icon aria-label="Side nav toggle icon">more_vert</mat-icon>
+      </button>
+      <span><span class="tb-icon" *ngIf="api._ticon != ''"><mat-icon>{{api._ticon}}</mat-icon> </span>{{api._title}}</span>
+      <span class="toolbar-hor-spacer"></span>
+      <button *ngIf="api._hasMenu" mat-button class="more-button" aria-label="Справка" routerLink="help">
+        <mat-icon>help_outline</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-logger></app-logger>
