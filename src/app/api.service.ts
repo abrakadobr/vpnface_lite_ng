@@ -22,7 +22,6 @@ export class APIService {
 
   setAdminIP(ip:string)
   {
-    console.log(['set admin ip',ip])
     if(this._adminIP=='')
       this._adminIP = ip
   }
