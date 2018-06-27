@@ -47,7 +47,6 @@ export class AppComponent {
   {
     this.api.loadStatus().subscribe((data:any)=>{
       if (this._status != data.status)
-        this.api._adminIP = data.admIP
         this.setStatus(data.status)
       if (this._doNext)
         setTimeout(()=>{

@@ -13,7 +13,9 @@ export class Installer2Component implements OnInit {
   ngOnInit() {
     this.api._title = 'Установка. шаг 3'
     this.api._hasMenu = false
-    this.api.finilizeInstall().subscribe((start)=>{})
+    setTimeout(()=>{
+      this.api.finilizeInstall().subscribe((start)=>{})
+    },5000)
   }
 
 }

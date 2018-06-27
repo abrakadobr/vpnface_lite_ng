@@ -20,6 +20,12 @@ export class APIService {
   public _adminIP:string=''
   constructor(private http:HttpClient) { }
 
+  setAdminIP(ip:string)
+  {
+    console.log(['set admin ip',ip])
+    if(this._adminIP=='')
+      this._adminIP = ip
+  }
   //common
   lastLogs()
   {
@@ -30,6 +36,7 @@ export class APIService {
   {
     return new Observable<any>((o)=>{
       this.http.get<any>('/api/status/').subscribe((data)=>{
+        this.setAdminIP(data.admIP)
         this._status = data.status
         o.next(data)
         o.complete()
