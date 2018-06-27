@@ -16,6 +16,8 @@ export class APIService {
   public _mtitle:string = ''
   public _hasMenu:boolean = true
   public _load:string = ''
+
+  public _adminIP:string=''
   constructor(private http:HttpClient) { }
 
   //common
@@ -115,12 +117,12 @@ export class APIService {
   //install
   finilizeInstall()
   {
-    return this.http.get<any>('http://10.1.0.1:8808/api/finilize')
+    return this.http.get<any>('http://'+this._adminIP+':8808/api/finilize')
   }
 
   ping10()
   {
-    return this.http.jsonp<any>('http://10.1.0.1:8808/api/ping','cb')
+    return this.http.jsonp<any>('http://'+this._adminIP+':8808/api/ping','cb')
   }
 
   confirmIP(ip:string)

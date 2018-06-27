@@ -28,6 +28,7 @@ export class InstallerComponent implements OnInit {
     this._load = true
     this._log = 'Сохраняем адрес'
     this.api.confirmIP(this._ip).subscribe((data)=>{
+      this.api._adminIP=data.admIP
       this._log = 'Создаётся администраторский VPN. Генерация ключей безопасности на слабых серверах может длиться до 10 минут. Не закрывайте эту страницу.'
     })
   }

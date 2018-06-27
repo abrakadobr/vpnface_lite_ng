@@ -47,6 +47,7 @@ export class AppComponent {
   {
     this.api.loadStatus().subscribe((data:any)=>{
       if (this._status != data.status)
+        this.api._adminIP = data.admIP
         this.setStatus(data.status)
       if (this._doNext)
         setTimeout(()=>{
@@ -60,7 +61,7 @@ export class AppComponent {
     //special single case on install finished
     if (this._status == 'install2' && st == 'ready')
     {
-      window.location.replace('http://10.1.0.1/vpn/adm')
+      window.location.replace('http://'+this.api._adminIP+'/vpn/adm')
       return
     }
     this._status = st

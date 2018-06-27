@@ -66,7 +66,7 @@ export class Installer1Component implements OnInit {
     this.api.ping10().subscribe({
       next: (ping)=>{
         console.log(['ping!',ping])
-        window.location.replace('http://10.1.0.1:8808/install2')
+        window.location.replace('http://'+this.api._adminIP+':8808/install2')
       },
       error: (err)=>{
         console.log(err)
